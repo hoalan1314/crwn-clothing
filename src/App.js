@@ -5,7 +5,7 @@ import './App.css';
 import HomePage from './pages/homepage/homepage.component'
 import ShopPage from "./pages/shop/shop.component";
 import Header from "./components/header/header.component";
-import SignInAndSignUpPage from "./pages/sing-in-and-sign-up/sing-in-and-sign-up.component";
+import SignInAndSignUpPage from "./pages/sign-in-and-sign-up/sign-in-and-sign-up.component";
 import {auth, createUserProfileDocument} from "./firebase/firebase.utils";
 
 class App extends React.Component{
@@ -29,6 +29,7 @@ class App extends React.Component{
               ...snapshot.data()
             }
           })
+          console.log(this.state)
         })
       }
       this.setState({currentUser: userAuth})
