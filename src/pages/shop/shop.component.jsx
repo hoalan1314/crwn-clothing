@@ -1,12 +1,16 @@
 import React from 'react'
+import {Route} from 'react-router-dom'
 import {connect} from 'react-redux'
-import CollectionPreview from "../../components/collection-preview/collection-preview.component";
 import {createStructuredSelector} from "reselect";
 import {selectCollections} from "../../redux/shop/shop.selector";
 import CollectionOverview from "../../components/collections-overview/collections-overview.component";
+import CategoryPage from "../category/category.component";
 
-const ShopPage = ({collections}) => (<div className='shop-page'>
-    <CollectionOverview />
+
+const ShopPage = ({match}) => (
+  <div className='shop-page'>
+    <Route exact path={`${match.path}`} component={CollectionOverview} />
+    <Route exact path={`${match.path}/:categoryId`}  component={CategoryPage}/>
   </div>
 )
 
